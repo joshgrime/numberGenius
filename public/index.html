@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="application/javascript" src="socket.io.js"></script>
+  <script type="application/javascript">
+  const socket = io('http://localhost:3000');
+  function scrapeRequest() {
+    var data = {};
+    data.url = document.getElementById('urlInput').value;
+    data.id = 'first';
+    socket.emit('scrapeRequest', data);
+    }
+</script>
+</head>
+<body>
+URL: <input id="urlInput" /><br>
+Page depth: <input id="pageDepthInput" /><p>
+
+<button onclick="scrapeRequest()">Scrape numbers</button>
+</body>
+</html>
